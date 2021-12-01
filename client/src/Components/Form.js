@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-// import FileBase from 'react-file-base64';
+import FileBase from "react-file-base64";
 import axios from "axios";
 
 function Form() {
@@ -9,7 +9,9 @@ function Form() {
     creator: '',
      message: '', 
      tags: '', 
-    //  selected_file: '' 
+     like_count:0,
+     created_at:'',
+    selected_file: '' 
   })
 
   const handleSubmit = (e)=> {
@@ -19,11 +21,15 @@ function Form() {
       creator: postMemories.creator,
        message: postMemories.message, 
        tags: postMemories.tags, 
+       selected_file:postMemories.selected_file,
+       created_at: postMemories.created_at,
       
     }).then(data=> {
       console.log("data", data)
     })
   }
+
+  
   return (
     <div className="form-container">
       <form onSubmit= {handleSubmit}>
@@ -40,7 +46,10 @@ function Form() {
         <label>Tags:</label>
         <input type="text" name="tags" value= {postMemories.tags}  placeholder="Please type a tag with comma seperated"  onChange={(e) => setPostMemories({ ...postMemories, tags: e.target.value })}></input>
         
-        {/* <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostMemories({ ...postMemories, selected_file: base64 })} /> */}
+        <label>Date:</label>
+        <input type="date" value={postMemories.created_at} name="created_at" onChange={(e) => setPostMemories({ ...postMemories, created_at: e.target.value })}></input>
+        
+       <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostMemories({ ...postMemories, selected_file: base64 })} /> 
 
         <br/>
         <button>Submit</button>

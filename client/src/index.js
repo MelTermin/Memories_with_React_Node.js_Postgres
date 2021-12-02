@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MemoryContextProvider } from './Context/MemoryContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <MemoryContextProvider>
     <App />
+    </MemoryContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

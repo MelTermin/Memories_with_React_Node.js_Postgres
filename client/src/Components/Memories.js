@@ -6,7 +6,16 @@ import moment from 'moment';
 function Memories() {
   const {details,setDetails}=useContext(MemoryContext)
 
-  // const [singleMemo,setSingleMemo]=useState();
+  const [postMemories, setPostMemories]=useState({
+    title: '', 
+    creator: '',
+     message: '', 
+     tags: '', 
+     created_at:'',
+    selected_file: '' 
+  })
+
+  const [singleMemo,setSingleMemo]=useState();
   useEffect (()=> {
     axios.get("http://localhost:5000/memories").then(response=> {
       console.log(response)
@@ -38,8 +47,26 @@ function Memories() {
   //    })
   //  }
 
-  const handleEdit= () =>{
-    
+  const handleEdit= async (id) =>{
+    console.log(id)
+
+  }
+
+  const handleDelete = (id) => {
+    try {
+      axios.delete(`http://localhost:5000/memory/${id}`)
+      .then(response=> {
+        console.log("delete-response",response)
+        setDetails(
+          details.filter((item) => {
+            return item.id !== id;
+          })
+        );
+       
+      })
+    }catch(err) {
+  
+    }
   }
 
   return (
@@ -63,7 +90,7 @@ function Memories() {
             <strong>{item.title}</strong>
             <strong>{item.message}</strong>
             <button>Like{item.like_count}</button>
-            <button>Delete</button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
            
             
             

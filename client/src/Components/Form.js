@@ -72,8 +72,8 @@ function Form() {
 
         <br/>
        
-       {!isSubmitted && <button>Submit</button>}
-       {isSubmitted && <button disabled>Adding Memory...</button>}
+       {!isSubmitted && <button className="btn-submit">Submit</button>}
+       {isSubmitted && <button disabled className="btn-disabled">Adding Memory...</button>}
        
       </form>
       

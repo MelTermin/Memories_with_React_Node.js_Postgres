@@ -30,7 +30,7 @@ function Form() {
        tags: postMemories.tags, 
        selected_file:postMemories.selected_file,
        created_at: postMemories.created_at,
-       like_count:postMemories.like_count,
+     
       
     }).then(data=> {
       console.log("data", data)

@@ -1,17 +1,17 @@
 .container {
-  border: 2px solid sandybrown;
+
   min-height:100vh;
   width: 100%;
   display:flex;
-  justify-content: center;
   flex-direction: row;
 }
 
 .form-container {
-  
+  display:flex;
+  flex-direction:column;
   width: 30%;
   min-height: 100vh;
-  border: 2px solid green;
+ 
 }
 
 .form-container form {
@@ -33,13 +33,11 @@
 }
 
 .memories-container{
-  flex:1;
+  flex-grow: 1;
   display:flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  height: 100%;
-  border: 5px solid blueviolet;
+
+ 
   
 }
 
@@ -50,8 +48,9 @@ justify-content: center;
 width: 350px;
 position:relative;
 height:100%;
- margin:10px 10px;
+margin:10px 10px;
 border-radius: 15px;
+padding: 10px;
 box-shadow: 0px 1px 5px 3px rgb(5, 68, 119);
 
   
@@ -60,7 +59,7 @@ box-shadow: 0px 1px 5px 3px rgb(5, 68, 119);
 .image {
   width:350px;
   height:200px;
-  border-radius: 15px;
+  border-radius: 6px;
 
  
 }
@@ -114,7 +113,7 @@ box-shadow: 0px 1px 5px 3px rgb(5, 68, 119);
 }
 
 
-.btn-submit {
+.btn-submit, .btn-cancel {
   width: 100%;
   background:  #99CCCC;
   color: #fff;
@@ -130,4 +129,33 @@ box-shadow: 0px 1px 5px 3px rgb(5, 68, 119);
 
 .btn-submit:hover {
   background-color: #3b2fe4;
+}
+
+.btn-modal {
+  width: 10%;
+  background:  #e70e44;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn-delete {
+  width: 50%;
+  background:  #3d48dd;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  display: inline-block;
+  margin: 10px 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
 }

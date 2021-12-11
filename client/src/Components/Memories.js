@@ -14,7 +14,8 @@ function Memories() {
      message: '', 
      tags: '', 
      created_at:'',
-    selected_file: '' 
+    selected_file: '' ,
+    like_count:0
   })
 
  
@@ -27,7 +28,7 @@ function Memories() {
       console.log(response)
       setDetails(response.data)
     })
-   },[details]);
+   },[]);
   
 
    const handleEdit= async (id) => {
@@ -90,6 +91,8 @@ function Memories() {
   }
 
 
+
+
   return (
 <div className="memories-container">
             <div  >
@@ -132,14 +135,14 @@ function Memories() {
                       </div>
                     
                     <div className="overlay2">
-                      <button onClick= {() =>setModalIsOpen(item.id)}>...</button>
+                      <button className="btn-modal" onClick= {() =>setModalIsOpen(item.id)}>...</button>
                     </div>
                             
                       <small>{item.tags}</small>
                       <strong>{item.title}</strong>
                       <strong>{item.message}</strong>
-                      <button>Like{item.like_count}</button>
-                      <button onClick={() => handleDelete(item.id)}>Delete</button>
+                     
+                      <button  className="btn-delete"onClick={() => handleDelete(item.id)}>Delete</button>
                     </div>
             )
             }

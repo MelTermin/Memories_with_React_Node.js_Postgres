@@ -71,17 +71,7 @@ app.delete ("/memory/:id", async(req,res)=> {
   }
 })
 
-app.patch("/memory/:id", async(req,res)=> {
-  try {
-    const {id}=req.params;
-    const {like_count}=req.body;
-    const updateLike=await db.query("UPDATE memories SET like_count= $1 where id= $2 returning *", [id,like_count+1])
-    res.send(updateLike.rows)
 
-  }catch (err) {
-    console.log(err)
-  }
-})
 
 
 
